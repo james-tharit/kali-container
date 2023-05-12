@@ -18,7 +18,7 @@ RUN apt -y install ca-certificates && rm -rf /etc/apt/apt.conf.d/99verify-peer.c
 RUN apt -y update && DEBIAN_FRONTEND=noninteractive apt -y dist-upgrade && apt -y autoremove && apt clean
 
 # Install common and useful tools
-RUN apt -y install curl wget vim git iproute2 whois netcat-openbsd pciutils usbutils
+RUN apt -y install curl wget vim git iproute2 whois netcat-openbsd pciutils usbutils iputils-ping
 
 # # Install Kali Linux "Top 10" metapackage and a few cybersecurity useful tools
 # RUN DEBIAN_FRONTEND=noninteractive apt -y install kali-tools-top10 exploitdb man-db dirb nikto wpscan uniscan lsof apktool dex2jar ltrace strace binwalk
