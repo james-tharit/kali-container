@@ -3,4 +3,4 @@
 docker build -t kaliz .
 
 # start new kaliz container in interactive mode with shell
-docker run --rm -it --net="host" kaliz  
+docker run --rm -it --network="host" kaliz  
