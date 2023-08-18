@@ -18,9 +18,9 @@ RUN apt install ca-certificates -y && rm -rf /etc/apt/apt.conf.d/99verify-peer.c
 RUN apt update -y && DEBIAN_FRONTEND=noninteractive apt dist-upgrade -y && apt autoremove -y && apt clean
 
 # Install common and useful tools
-RUN apt install curl wget nmap iproute2 whois pciutils usbutils iputils-ping vim git dnsutils net-tools steghide procps tor -y
+RUN apt install curl wget iproute2 whois pciutils usbutils iputils-ping vim git dnsutils net-tools steghide procps tor -y
 
-RUN apt install nmap telnet man putty-tools -y
+RUN apt install nmap ncat telnet man putty-tools -y
 # # Install Kali Linux "Top 10" metapackage and a few cybersecurity useful tools
 # RUN DEBIAN_FRONTEND=noninteractive apt -y install kali-tools-top10 exploitdb man-db dirb nikto wpscan uniscan lsof apktool dex2jar ltrace strace binwalk
 RUN curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
