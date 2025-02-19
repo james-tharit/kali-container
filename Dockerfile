@@ -1,6 +1,7 @@
 # Kali Linux latest with useful tools by tsumarios
 FROM kalilinux/kali-rolling
 
+USER root  
 # Set working directory to /root
 WORKDIR /root
 
@@ -21,7 +22,7 @@ RUN apt update -y && DEBIAN_FRONTEND=noninteractive apt dist-upgrade -y && apt a
 RUN apt install curl wget iproute2 whois pciutils usbutils iputils-ping vim git dnsutils net-tools steghide procps tor -y
 
 RUN apt install nmap ncat telnet man putty-tools -y
-# # Install Kali Linux "Top 10" metapackage and a few cybersecurity useful tools
+# Install Kali Linux "Top 10" metapackage and a few cybersecurity useful tools
 # RUN DEBIAN_FRONTEND=noninteractive apt -y install kali-tools-top10 exploitdb man-db dirb nikto wpscan uniscan lsof apktool dex2jar ltrace strace binwalk
 RUN curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
 	chmod 755 msfinstall && \
@@ -30,9 +31,12 @@ RUN curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/conf
 RUN apt -y install proxychains
 COPY config/proxychains.conf /etc/proxychains.conf
 
-# # Install ZSH shell with custom settings and set it as default shell
+# Install ZSH shell with custom settings and set it as default shell
 RUN apt install zsh -y
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 COPY config/.zshrc .
+
+# Install zsh-autosucggestions
+Run git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 ENTRYPOINT ["/bin/zsh"]
