@@ -16,6 +16,9 @@ socks5 98.178.72.21 10919
 ```
 
 ## Usage
+wrap proxychain with anything
+curl, nmap, netcat , etc...
+example
 wrap proxychain with network command
 ```sh
 proxychains curl ifconfig.me/ip

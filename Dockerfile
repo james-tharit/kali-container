@@ -20,7 +20,7 @@ RUN apt install ca-certificates -y && rm -rf /etc/apt/apt.conf.d/99verify-peer.c
 RUN apt update -y && DEBIAN_FRONTEND=noninteractive apt dist-upgrade -y && apt autoremove -y && apt clean
 
 # Install common and useful tools
-RUN apt install -y curl git vim nmap ncat iputils-ping john
+RUN apt install -y curl git vim nmap netcat-openbsd iputils-ping john
 
 RUN git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
 
