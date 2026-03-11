@@ -10,7 +10,6 @@ ProxyChains is a Unix-like program that allows you to force any TCP connection m
 
 # defaults set to "tor"
 socks5 	127.0.0.1 9050
-socks5 98.178.72.21 10919
 ...
 ...
 ```
@@ -21,5 +20,5 @@ curl, nmap, netcat , etc...
 example
 wrap proxychain with network command
 ```sh
-proxychains curl ifconfig.me/ip
+proxychains4 curl ifconfig.me/ip
 ```

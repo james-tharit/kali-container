@@ -1,5 +1,5 @@
 # Kali Linux latest with useful tools by tsumarios
-FROM kalilinux/kali-rolling
+FROM docker.io/kalilinux/kali-rolling
 
 USER root  
 # Set working directory to /root
@@ -27,7 +27,7 @@ RUN git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
 RUN apt install python3 -y
 
 # # Install Tor and proxychains, then configure proxychains with Tor
-RUN apt -y install proxychains tor
+RUN apt -y install proxychains4 tor
 COPY config/proxychains.conf /etc/proxychains.conf
 
 # Install ZSH shell with custom settings and set it as default shell
